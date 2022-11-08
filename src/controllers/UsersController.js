@@ -68,6 +68,16 @@ exports.profileDetails=(req,res)=>{
         }
     })
 }
+exports.allUser=(req,res)=>{
+    let Query = {};
+    UsersModel.find(Query,{_id:0,password:0},(err, data) => {
+        if (err) {
+            res.status(400).json({status: "fail", data: err})
+        } else {
+            res.status(200).json({status: "success", data: data})
+        }
+    })
+}
 
 exports.RecoverVerifyEmail=async (req,res)=>{
     let email = req.params.email;
