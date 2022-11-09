@@ -51,7 +51,7 @@ exports.listTaskByStatus=(req,res)=>{
     TasksModel.aggregate([
         {$match:{status:status,email:email}},
         {$project:{
-                _id:1,title:1,description:1, status:1,
+                _id:1,title:1,description:1,assigMember:1,status:1,
                 createdDate:{
                     $dateToString:{
                         date:"$createdDate",
