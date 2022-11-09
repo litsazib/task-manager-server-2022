@@ -16,7 +16,6 @@ exports.registration=(req, res)=>{
     })
 
 }
-
 exports.login=(req,res)=>{
     let reqBody=req.body
     UsersModel.aggregate([
@@ -38,7 +37,6 @@ exports.login=(req,res)=>{
         }
     })
 }
-
 exports.profileUpdate=(req,res)=>{
     let email= req.headers['email'];
     let reqBody=req.body;
@@ -52,8 +50,6 @@ exports.profileUpdate=(req,res)=>{
     })
 
 }
-
-
 exports.profileDetails=(req,res)=>{
     let email= req.headers['email'];
     UsersModel.aggregate([
@@ -71,11 +67,19 @@ exports.profileDetails=(req,res)=>{
 exports.allUser=(req,res)=>{
     let Query = {};
     UsersModel.find(Query,{password:0,photo:0,createdDate:0},(err, data) => {
+<<<<<<< HEAD
         if (err) {
             res.status(400).json({status: "fail", data: err})
         } else {
             res.status(200).json({status: "success", data: data})
         }
+=======
+            if (err) {
+                res.status(400).json({status: "fail", data: err})
+            } else {
+                res.status(200).json({status: "success", data: data})
+            }
+>>>>>>> c3152b100a49e60708ca2c7d072abbe70736ea54
     })
 }
 
