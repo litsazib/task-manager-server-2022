@@ -70,7 +70,7 @@ exports.profileDetails=(req,res)=>{
 }
 exports.allUser=(req,res)=>{
     let Query = {};
-    UsersModel.find(Query,{_id:0,password:0},(err, data) => {
+    UsersModel.find(Query,{password:0,photo:0,createdDate:0},(err, data) => {
         if (err) {
             res.status(400).json({status: "fail", data: err})
         } else {
